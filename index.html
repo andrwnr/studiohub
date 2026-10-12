@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StudioHub — Upload AI Assisted (Mockup)</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="user">
+      <div class="avatar"><svg class="ico" style="width:26px;height:26px" viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-4 0-8 2-8 5v3h16v-3c0-3-4-5-8-5z"/></svg></div>
+      <div><b>Admin KGnow</b><span>Kompas.com ▾</span></div>
+    </div>
+    <ul class="menu">
+      <li><a href="#"><svg class="ico" viewBox="0 0 24 24"><path d="M3 13h8V3H3zm10 8h8V11h-8zM3 21h8v-6H3zm10-18v6h8V3z"/></svg>Dashboard</a></li>
+      <li class="open"><a href="#"><svg class="ico" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11z"/></svg>Video Basket <span class="chev">▾</span></a>
+        <ul class="sub">
+          <li><a href="#">Uploads</a></li>
+          <li><a href="#" class="active">Upload AI Assisted <span class="badge-new">NEW</span></a></li>
+          <li><a href="#">Siap</a></li>
+          <li><a href="#">Tayang</a></li>
+          <li><a href="#">Video Group</a></li>
+          <li><a href="#">Metadata</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Premium Video <span class="chev">‹</span></a></li>
+      <li><a href="#">Sound Bank <span class="chev">‹</span></a></li>
+      <li><a href="#">Video Management <span class="chev">‹</span></a></li>
+      <li><a href="#">Channel Management <span class="chev">‹</span></a></li>
+      <li><a href="#">Onair Management <span class="chev">‹</span></a></li>
+      <li><a href="#">Audio Management <span class="chev">‹</span></a></li>
+      <li><a href="#">Featured Banner</a></li>
+    </ul>
+  </aside>
+
+  <div class="main">
+    <div class="navbar">
+      <button class="toggle" aria-label="Toggle menu">☰</button>
+      <div class="right"><span>Studio HUB</span><span class="notif">Notification <i>8</i></span><span>⎋</span></div>
+    </div>
+
+    <div class="content">
+      <div class="ph">
+        <h1>Studio Hub <small>Upload AI Assisted</small></h1>
+        <div class="crumb">Home / Upload / <b>Upload AI Assisted</b></div>
+      </div>
+
+      <div class="box ai">
+        <div class="box-h">
+          <svg class="ico" viewBox="0 0 24 24" style="fill:#7c3aed"><path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8zM5 16l.9 2.1L8 19l-2.1.9L5 22l-.9-2.1L2 19l2.1-.9zm14 0l.9 2.1L22 19l-2.1.9L19 22l-.9-2.1L16 19l2.1-.9z"/></svg>
+          Upload Video — AI Assisted
+          <div class="tools"><span class="legend"><span><i class="sw a"></i>diisi AI</span><span><i class="sw e"></i>diubah editor</span></span></div>
+        </div>
+        <div class="box-b">
+
+          <div class="callout ai">
+            <div><b>Cara kerja</b>Pilih file video, tempel URL konten terkait (opsional), lalu tekan <b style="display:inline">Auto Compose</b>. AI akan membaca URL dan isi video, lalu mengisi kategori, tags, teaser, deskripsi, kredit tim, dan thumbnail. Semua hasil bisa diedit sebelum disimpan.</div>
+            <span class="i">ⓘ</span>
+          </div>
+
+          <!-- (3) FILE VIDEO -->
+          <div class="field" id="f-file">
+            <label>File Video <span class="req">*</span> <small>mp4, maksimum 3 GB</small></label>
+            <div class="drop" id="drop" tabindex="0" role="button" aria-label="Pilih file video">
+              <b>＋ Tarik file ke sini atau klik untuk memilih</b>
+              <span>Satu file mp4 per upload. Upload berjalan di latar belakang selama kamu mengisi metadata.</span>
+              <input type="file" id="fileinput" accept="video/mp4" class="sr">
+            </div>
+            <div class="filecard" id="filecard" hidden>
+              <div class="thumb" id="filethumb"></div>
+              <div class="meta">
+                <b id="fname">liputan-mrt-fase2a.mp4</b>
+                <span id="finfo">1.2 GB · 1920×1080 · 04:12 · 25 fps</span>
+                <div class="prog"><i id="fprog"></i></div>
+                <span id="fstatus">Mengunggah… 0%</span>
+              </div>
+              <button class="btn sm" id="fremove" type="button">Ganti file</button>
+            </div>
+          </div>
+
+          <!-- (4) URL -->
+          <div class="field" id="f-url">
+            <label for="url">URL Related to Content <small>(opsional) — jadi patokan AI mengisi deskripsi &amp; metadata</small></label>
+            <div class="urlrow">
+              <input class="ctl" id="url" type="url" placeholder="https://www.kompas.com/... atau https://www.instagram.com/reel/...">
+              <span class="src-pill" id="srcpill">belum ada URL</span>
+            </div>
+            <div class="samples">Contoh URL untuk demo:
+              <button type="button" data-sample="kompas">Artikel kompas.com</button>
+              <button type="button" data-sample="ig">Reel Instagram</button>
+              <button type="button" data-sample="none">Tanpa URL (hanya dari video)</button>
+            </div>
+          </div>
+
+          <!-- (5) AUTO COMPOSE -->
+          <div class="field">
+            <button class="btn ai" id="compose" type="button" disabled>
+              <svg class="ico" viewBox="0 0 24 24"><path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8zM5 16l.9 2.1L8 19l-2.1.9L5 22l-.9-2.1L2 19l2.1-.9zm14 0l.9 2.1L22 19l-2.1.9L19 22l-.9-2.1L16 19l2.1-.9z"/></svg>
+              <span id="composetext">Auto Compose</span>
+            </button>
+            <span class="hint" id="composehint" style="display:inline;margin-left:10px">Pilih file video dulu untuk mengaktifkan.</span>
+
+            <div class="steps" id="steps" hidden>
+              <div class="step" data-step="1"><span class="n">1</span><div><b>Baca URL</b><span>scraping judul, isi, byline, gambar</span></div></div>
+              <div class="step" data-step="2"><span class="n">2</span><div><b>Analisis video</b><span>transkrip audio &amp; frame kunci</span></div></div>
+              <div class="step" data-step="3"><span class="n">3</span><div><b>Susun metadata</b><span>kategori, tags, teaser, deskripsi</span></div></div>
+              <div class="step" data-step="4"><span class="n">4</span><div><b>Cocokkan kredit</b><span>nama → master data tim</span></div></div>
+            </div>
+
+            <div class="preview" id="preview" hidden>
+              <div class="thumb t1" id="pthumb"></div>
+              <div class="meta">
+                <span class="src-pill kompas" id="ppill">kompas.com</span>
+                <b id="ptitle"></b>
+                <p id="pdesc"></p>
+                <p id="pby"></p>
+              </div>
+            </div>
+
+            <div class="summary" id="summary" hidden>
+              <div class="stat ai"><b id="s-filled">0</b><span>field diisi AI — periksa yang bertanda ungu</span></div>
+              <div class="stat"><b id="s-time">0 dtk</b><span>waktu compose (target &lt; 30 dtk)</span></div>
+              <div class="stat"><b id="s-manual">0</b><span>field yang masih perlu diisi manual</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- METADATA -->
+      <div class="box">
+        <div class="box-h">Metadata Video <div class="tools"><button class="btn sm" id="resetai" type="button" hidden>Hapus semua isian AI</button></div></div>
+        <div class="box-b">
+          <div class="callout info"><div><b>Video Category</b>Please select one of video category below to apply video recommendation</div><span class="i">ⓘ</span></div>
+
+          <div class="row2">
+            <div class="field" data-ai="category"><label for="cat">Video Category <span class="req">*</span><span class="tag ai">AI</span><span class="tag src"></span><span class="tag ok">diubah</span></label>
+              <select class="ctl" id="cat"><option value="">- Please select video category -</option><option>News</option><option>Megapolitan</option><option>Tren</option><option>Money</option><option>Bola</option><option>Tekno</option><option>Hype</option><option>Travel</option><option>Edukasi</option><option>Lifestyle</option></select></div>
+            <div class="field" data-ai="subcat"><label for="subcat">Video Sub Category<span class="tag ai">AI</span><span class="tag src"></span><span class="tag ok">diubah</span></label>
+              <select class="ctl" id="subcat"><option value="">- Please select video sub category -</option><option>Transportasi</option><option>Liputan Lapangan</option><option>Kuliner</option><option>Viral</option><option>Ekonomi</option><option>Pemerintahan</option></select></div>
+          </div>
+
+          <div class="field" data-ai="title"><label for="title">Title <span class="req">*</span><span class="tag ai">AI</span><span class="tag src"></span><span class="tag ok">diubah</span></label>
+            <input class="ctl" id="title" placeholder="Video Title" maxlength="120"><div class="hint" id="titlehint">Wajib diisi. AI akan menyarankan judul dari URL/transkrip; kamu tetap bisa menimpanya.</div></div>
+
+          <div class="field" data-ai="tags"><label>Tags <small>(Type multiple tags separated by comma)</small><span class="tag ai">AI</span><span class="tag src"></span><span class="tag ok">diubah</span></label>
+            <div class="tags" id="tags"><input id="taginput" placeholder="ketik tag lalu Enter atau koma"></div></div>
+
+          <div class="field" data-ai="teaser"><label for="teaser">Teaser<span class="tag ai">AI</span><span class="tag src"></span><span class="tag ok">diubah</span></label>
+            <textarea class="ctl" id="teaser" maxlength="200"></textarea></div>
+
+          <div class="field" data-ai="desc"><label for="desc">Description <span class="req">*</span><span class="tag ai">AI</span><span class="tag src"></span><span class="tag ok">diubah</span></label>
+            <textarea class="ctl big" id="desc" maxlength="2000"></textarea>
+            <div class="counter">Limit Character: <b id="desccount">2000</b></div></div>
+
+          <div class="field" data-ai="thumb" id="f-thumb"><label>Thumbnail<span class="tag ai">AI</span><span class="tag src"></span><span class="tag ok">diubah</span></label>
+            <div class="hint" id="thumbhint">Pilih file video dulu. Dari Instagram, AI mengambil cover reel; dari artikel/tanpa URL, AI memilih frame kunci video.</div>
+            <div class="thumbs" id="thumbs"></div></div>
+
+          <div class="callout info" style="margin-top:6px"><div><b>Kredit Tim</b>AI mencocokkan nama dari byline artikel / caption Instagram / credit title di video dengan master data. Nama yang tidak cocok dibiarkan kosong dan ditandai.</div><span class="i">ⓘ</span></div>
+
+          <div class="row3" id="credits"></div>
+
+          <div class="footer-actions">
+            <button class="btn success" id="save" type="button">Simpan ke Siap</button>
+            <button class="btn" id="draft" type="button">Simpan Draft</button>
+            <span class="note" id="validmsg">3 field wajib belum terisi: File Video, Title, Description</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
